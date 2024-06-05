@@ -1,12 +1,12 @@
+import { useResizable } from "@/hooks/useResizable";
 import { TDimensions } from "./card.types";
-import { useResizable } from "../../../hooks/useResizable";
 
 export type CardProps = {
-  dimensions: TDimensions;
+  setDimensions: (dimentions: TDimensions) => void;
 };
 
-export default function Card({ dimensions }: CardProps) {
-  const [ref] = useResizable();
+export default function Card({ setDimensions }: CardProps) {
+  const [ref] = useResizable(setDimensions);
 
   return (
     <div ref={ref} className="border-black relative h-32 w-32">
